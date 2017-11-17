@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/login"
     tools:context="com.example.greedydevs.festivalx.LoginActivity">
 
     <!-- Login progress -->
@@ -31,9 +32,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Space
+                android:id="@+id/initial_space"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@color/colorFields">
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
@@ -42,13 +50,22 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColorLink="@android:color/darker_gray"
+                    android:textSize="20sp" />
 
             </android.support.design.widget.TextInputLayout>
+            <Space
+                android:id="@+id/between_space"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@color/colorFields">
 
                 <EditText
                     android:id="@+id/password"
@@ -61,13 +78,18 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColorLink="@android:color/black"
+                    android:textSize="20sp"
                     tools:ignore="InvalidImeActionId" />
 
             </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
+                style="?android:textAppearanceButton"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
