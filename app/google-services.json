@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "405243487823",
+    "firebase_url": "https://festivalx-81234.firebaseio.com",
+    "project_id": "festivalx-81234",
+    "storage_bucket": "festivalx-81234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405243487823:android:6c1799bb90507ab1",
+        "android_client_info": {
+          "package_name": "com.example.greedydevs.festivalx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405243487823-k288v5sd7b3ts1d55ub8bhj4dvl5i60a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeh0_dVqxooAWQ2YBTVEHBxq_5Whjd4tA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
