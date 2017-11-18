@@ -7,6 +7,7 @@
     tools:context="com.example.greedydevs.festivalx.MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,42 +21,48 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"/>
+
     <android.support.design.widget.CollapsingToolbarLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="682dp"
         android:background="@drawable/main_up"
         android:fitsSystemWindows="true">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab1"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_gravity="bottom|left"
-            android:layout_margin="@dimen/fab_margin1"
-            app:layout_anchorGravity="bottom|end"
-            app:srcCompat="@drawable/drinks"
-            tools:ignore="RtlHardcoded" />
+        <include layout="@layout/nav_bar"/>
+        <Space
+            android:id="@+id/between_space"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
 
-        <android.support.design.widget.FloatingActionButton
+        <Button
             android:id="@+id/fab2"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_margin="@dimen/fab_margin2"
-            app:layout_anchorGravity="center_vertical|center_horizontal"
-            app:srcCompat="@drawable/food2"
-            tools:layout_editor_absoluteX="277dp" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab3"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="@dimen/fab_margin3"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/souvenirs"
-        tools:layout_editor_absoluteX="277dp">
-    </android.support.design.widget.FloatingActionButton>
+            android:layout_marginTop="@dimen/button_dim1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/button_dim1"
+            android:background="@drawable/drinks" />
+        <Button
+            android:id="@+id/fab"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_margin="@dimen/button_dim1"
+            android:background="@drawable/food2" />
+
+        <Button
+            android:id="@+id/fab1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/button_dim1"
+            android:background="@drawable/souvenirs" />
+
+
+
+
 
     </android.support.design.widget.CollapsingToolbarLayout>
 
