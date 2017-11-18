@@ -5,11 +5,13 @@ package com.example.greedydevs.festivalx;
  */
 
 public class Group {
+    private String name;
     private String[] members;
     private String[] products;
     private int membersCount, productsCount;
-    public Group(String[] members, String products[])
+    public Group(String name, String[] members, String products[])
     {
+        this.name = name;
         members = new String[200];
         products = new String[200];
         this.members = members;
@@ -44,5 +46,10 @@ public class Group {
     public String getMemberAt(int index)
     {
         return this.members[index];
+    }
+
+    public String getName()
+    {
+        return this.name;
     }
 }

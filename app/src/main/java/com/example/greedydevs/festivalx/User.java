@@ -20,22 +20,38 @@ public class User  {
     DatabaseReference dbRef;
     private String userName;
     private int money;
-    private String[] friendList;
+    private String[] groupNames;
+    private Group[] groups;
+    private boolean hasGroups;
+
+    private int groupNamesLength = 0;
+
     //groups part- latter on
 
     public User(String email)
     {
+        groupNames = new String[200];
+        groups = new Group[200];
+        hasGroups = false;
+
         email = email.substring(0,email.length()-10);
         dbRef = dataBase.getReference("users" + '/' + email);
-        int a = 20;
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 setName( dataSnapshot.child("name").getValue().toString());
                 money = Integer.valueOf(dataSnapshot.child("money").getValue().toString());
-                //the code for friendList will be added later
-                friendList = new String[100];
+                if(dataSnapshot.child("groups").exists())
+                {
+
+                    for(int i =0; i < dataSnapshot.child("groups").getChildrenCount(); i++)
+                    {
+                        String grp = "group" + String.valueOf(i + 1);
+                        groupNames[groupNamesLength] = dataSnapshot.child("groups").child(grp).getValue().toString();
+                        groupNamesLength+=1;
+                    }
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -55,6 +71,18 @@ public class User  {
     public int getMoney()
     {
         return this.money;
+    }
+    public int getGroupsLength()
+    {
+        return this.groupNamesLength;
+    }
+
+    public void setGroups(GroupRepository repo)
+    {
+        for (int i=0; i<groupNamesLength;i++)
+        {
+            groups[i] = repo.getGroup(groupNames[i]);
+        }
     }
 
 }

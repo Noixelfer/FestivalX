@@ -13,18 +13,34 @@ import com.google.firebase.database.ValueEventListener;
 public class GroupRepository {
     final FirebaseDatabase dataBase = FirebaseDatabase.getInstance();
     DatabaseReference GroupsRef;
-    public GroupRepository()
-    {
+    private Group[] groups;
+    private int len = 0;
+
+    public GroupRepository() {
+        groups = new Group[200];
         GroupsRef = dataBase.getReference("Groups");
-            GroupsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        GroupsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snap: dataSnapshot.getChildren())
-                {
-                    if(snap.child("products").exists())
-                    {
-                        
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    String groupName = snap.getKey().toString();
+                    String[] users = new String[200];
+                    String[] products = new String[200];
+                    int length = (int) snap.getChildrenCount();
+                    if (snap.child("products").exists()) {
+                        length -= 1;
+                        for (int j = 0; j < snap.child("products").getChildrenCount(); j++) {
+                            String prod = "prod" + String.valueOf(j + 1);
+                            products[j] = snap.child("products").child(prod).getValue().toString();
+                        }
                     }
+                    for (int i = 0; i < length; i++) {
+                        String member = "member" + String.valueOf(i + 1);
+                        users[i] = snap.child(member).getValue().toString();
+                    }
+                    Group g = new Group(groupName, users, products);
+                    groups[len] = g;
+                    len += 1;
                 }
             }
 
@@ -34,6 +50,30 @@ public class GroupRepository {
                 // ...
             }
         });
+    }
+
+    public boolean groupExist(String name) {
+        for (int i = 0; i < len; i++) {
+            if (groups[i].getName().equals(name))
+                return true;
+        }
+        return false;
+    }
+
+    public int getLength() {
+        return len;
+    }
+
+    public Group getGroup(String name) {
+        for (int i = 0; i < len; i++) {
+            if (groups[i].getName().equals(name))
+                return groups[i];
+        }
+        return null;
+    }
+
+    public Group[] getGroups() {
+        return groups;
     }
 
 }
