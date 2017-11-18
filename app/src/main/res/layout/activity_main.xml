@@ -1,70 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.greedydevs.festivalx.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBar"
+
+    <LinearLayout
+
+        android:id="@+id/activity_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:orientation="vertical"
+        android:background="@drawable/main_upper1">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main"/>
-
-    <android.support.design.widget.CollapsingToolbarLayout
-        android:id="@+id/toolbar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="682dp"
-        android:background="@drawable/main_up"
-        android:fitsSystemWindows="true">
-
-        <include layout="@layout/nav_bar"/>
         <Space
             android:id="@+id/between_space"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:visibility="visible" />
 
-        <Button
-            android:id="@+id/fab2"
-            android:layout_marginTop="@dimen/button_dim1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="top|start"
-            android:layout_margin="@dimen/button_dim1"
-            android:background="@drawable/drinks" />
-        <Button
-            android:id="@+id/fab"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_vertical|start"
-            android:layout_margin="@dimen/button_dim1"
-            android:background="@drawable/food2" />
+        <include layout="@layout/nav_bar"/>
 
-        <Button
-            android:id="@+id/fab1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="bottom|start"
-            android:layout_margin="@dimen/button_dim1"
-            android:background="@drawable/souvenirs" />
+        <include layout="@layout/product_cat"/>
+    </LinearLayout>
 
 
 
 
-
-    </android.support.design.widget.CollapsingToolbarLayout>
 
 
 

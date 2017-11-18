@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buttons_choice"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_up">
+
+    <LinearLayout
+        android:id="@+id/vertical_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/fab"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_margin="@dimen/button_dim1"
+        android:background="@drawable/food2" />
+
+    <Button
+        android:id="@+id/fab1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="@dimen/button_dim1"
+        android:background="@drawable/souvenirs" />
+
+    <Button
+        android:id="@+id/fab2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/button_dim1"
+        android:background="@drawable/drinks" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
