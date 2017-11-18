@@ -3,8 +3,10 @@ package com.example.greedydevs.festivalx;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -86,10 +89,10 @@ public class LoginActivity extends AppCompatActivity{
                 }
                 else
                 {
-                   // Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                   // i.putExtra("username", email);
-                   // startActivity(i);
-                    Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    i.putExtra("email", email);
+                    User newUser = new User(email);
+                    startActivity(i);
                 }
             }
         });
